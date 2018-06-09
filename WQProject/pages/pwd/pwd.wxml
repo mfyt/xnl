@@ -1,0 +1,15 @@
+<view class="page-wrap">
+  <view class="input-panel">
+    <input type="text" class="send-input" name="oPwd" placeholder="请输入原密码" bindinput="oPwdInputContent" />
+  </view>
+  <view class="input-panel">
+    <input type="text" class="send-input" name="nPwd" placeholder="请输入新密码" bindinput="nPwdInputContent" />
+  </view>
+  <view class="input-panel">
+    <input type="text" class="send-input" name="rnPwd" placeholder="请再次输入新密码" bindinput="rnPwdInputContent" />
+  </view>
+  <view class="input-panel">
+    <button class="pic-icon"></button>
+    <button bindtap="updPwd" class="send-btn">确定</button>
+  </view>
+</view>

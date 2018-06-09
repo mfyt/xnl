@@ -1,0 +1,43 @@
+<view class="page-wrap">
+  <view class="input-panel">
+    <view class="auth-btn">
+      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+      <view wx:else>请升级微信版本</view>
+    </view>
+    <!-- 
+    <view class="auth-btn">
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机</button>
+    </view>
+    -->
+    <view bindtap="openPwd">
+      <view class="link">修改查询密码 ></view>
+    </view>
+  </view>
+  <view class="input-panel">
+    <input type="text" class="send-input" name="qPwd" placeholder="请输入查询密码" bindinput="qPwdInputContent" />
+  </view>
+  <view class="input-panel">
+    <input type="text" class="send-input" name="qDate" value="{{qDate}}" placeholder="请输入年月(格式为：201801)" bindinput="qDateInputContent" />
+  </view>
+  <view class="input-panel">
+    <button bindtap="qryWage" class="send-btn">查询</button>
+  </view>
+  <scroll-view class="chat-container" scroll-y scroll-into-view="{{lastItemId}}" scroll-top="9999999999">
+    <view class="table">
+      <view wx:for="{{wageList}}" wx:for-item="item" wx:key="id" id="{{item.id}}" class="item {{item.type}}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+          <view class="td-1" selectable="true">{{item.Titel}}</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.Value}}</text>
+          </view>
+        </view>
+        <view class="tr bg-g2" wx:else>
+          <view class="td-1" selectable="true">{{item.Titel}}</view>
+          <view class="td-2" selectable="true" scroll-y="true">
+            <text class="th-text" style="overflow-y:auto;overflow-x:scroll" selectable="true">{{item.Value}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
